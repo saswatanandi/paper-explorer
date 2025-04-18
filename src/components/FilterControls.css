@@ -1,0 +1,87 @@
+/* src/components/FilterControls.css */
+
+.filter-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Slightly wider min width */
+  gap: 1.5rem; /* Increased gap */
+  margin-top: 1.5rem; /* Add space below view controls */
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem; /* Slightly increased gap between label and select */
+  position: relative; /* For custom dropdown styling */
+}
+
+.filter-group label {
+  font-weight: 600; /* Bolder label */
+  font-size: 0.9rem; /* Slightly larger label */
+  color: var(--color-text-base); /* Darker label color */
+  margin-bottom: 0.2rem; /* Tiny space below label */
+  transition: color var(--transition-fast);
+}
+
+.filter-group select {
+  appearance: none; /* Remove default styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 1rem; /* Standard font size in select */
+  padding: 0.7rem 1rem; /* Increased padding */
+  padding-right: 2.5rem; /* Space for custom arrow */
+  border-radius: var(--border-radius-md); /* Match global input border radius */
+  border: 1px solid var(--color-border); /* Ensure border color is consistent */
+  background-color: var(--color-bg-base);
+  color: var(--color-text-base);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+}
+
+.filter-group::after {
+  content: '▼';
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  position: absolute;
+  right: 1rem;
+  bottom: 0.85rem;
+  pointer-events: none; /* Ensure clicks pass through to select */
+  transition: transform var(--transition-normal);
+}
+
+.filter-group:hover::after {
+  color: var(--color-primary);
+  transform: translateY(2px);
+}
+
+.filter-group select:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 1px var(--color-primary-light), var(--shadow-sm);
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-light), var(--shadow-sm);
+}
+
+/* Custom styling for dropdown options */
+.filter-group select option {
+  padding: 0.8rem;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-base);
+}
+
+/* Fix for Topic dropdown alignment */
+#topic-filter {
+  position: relative;
+}
+
+/* Ensure dropdown is centered */
+@media (min-width: 768px) {
+  #topic-filter option {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

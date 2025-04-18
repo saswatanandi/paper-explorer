@@ -1,0 +1,44 @@
+
+architect: true
+model: openai/gemini-2.5-pro-exp-03-25
+# model: openai/vertex/anthropic/claude-3-7-sonnet
+edit-format: diff
+editor-model: openai/gemini-2.5-pro-exp-03-25
+# editor-model: openai/vertex/anthropic/claude-3-7-sonnet
+# models : gemini-2.5-pro-exp-03-25 claude-3-7-sonnet-20250219
+show-model-warnings: false
+cache-prompts: true
+yes-always: false
+detect-urls: false
+auto-commits: false
+vim: false
+editor: nano
+read:
+ - project_overview.md
+ - tickets.md
+ - code_functions.md
+ - astro.config.mjs
+ - project_update.md
+file:
+ - src/components/FilterControls.jsx
+ - src/components/FilterControls.css
+ - src/components/PaperApp.jsx
+ - src/components/PaperApp.css
+ - src/components/PaperItem.jsx
+ - src/components/PaperItem.css
+ - src/components/PaperList.jsx
+ - src/components/PaperList.css
+ - src/components/PaperLoader.jsx
+ - src/components/PaperLoader.css
+ - src/components/SearchBar.jsx
+ - src/components/SearchBar.css
+ - src/styles/global.css
+ - src/layouts/Layout.astro
+ - src/pages/index.astro
+
+
+
+
+# src/components/PaperApp.jsx
+# src/layouts/Layout.astro
+# src/pages/index.astro

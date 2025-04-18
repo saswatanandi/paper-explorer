@@ -1,0 +1,163 @@
+/* src/components/PaperLoader.css */
+
+.paper-loader {
+  /* Inherits .card styles from global.css */
+  text-align: center;
+  max-width: 600px; /* Slightly wider */
+  margin: 4rem auto; /* More vertical margin */
+  padding: 2.5rem; /* Increased padding */
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-bounce), box-shadow var(--transition-normal);
+  border-top: 4px solid var(--color-primary);
+}
+
+.paper-loader:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.loader-icon {
+  font-size: 3rem; /* Larger icon */
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.loader-icon .spin-icon {
+  animation: spin 1.5s linear infinite;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.loader-icon::before {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-primary-light);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.6;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+  100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+.paper-loader h2 {
+  /* Handled globally */
+  margin-bottom: 0.75rem; /* Reduced space */
+  font-size: 1.75rem; /* Slightly smaller */
+}
+
+.loader-description {
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem; /* More space before button/indicator */
+  font-size: 1.05rem; /* Slightly larger */
+  line-height: 1.7;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--border-radius-md);
+}
+
+.load-button {
+  /* Inherits global button styles */
+  padding: 0.8rem 1.8rem; /* Larger padding */
+  font-size: 1.05rem; /* Larger font */
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-bounce);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.load-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.load-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.load-button:hover::after {
+  transform: translateX(100%);
+}
+
+/* Loading Indicator Styles */
+.loading-indicator {
+  width: 100%;
+  margin-top: 2rem; /* More space */
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px; /* Slimmer progress bar */
+  background-color: var(--color-border); /* Use border color for background */
+  border-radius: var(--border-radius-full); /* Fully rounded */
+  overflow: hidden;
+  margin-bottom: 0.75rem; /* Space below bar */
+  box-shadow: var(--shadow-inner);
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  background-image: linear-gradient(45deg, 
+    var(--color-primary) 25%, 
+    var(--color-primary-dark) 25%, 
+    var(--color-primary-dark) 50%, 
+    var(--color-primary) 50%, 
+    var(--color-primary) 75%, 
+    var(--color-primary-dark) 75%, 
+    var(--color-primary-dark) 100%);
+  background-size: 20px 20px;
+  animation: progress-animation 1s linear infinite, width-animation 0.3s ease;
+  border-radius: 6px; /* Match parent */
+  transition: width 0.4s ease; /* Slightly slower transition */
+  /* Remove float, rely on width */
+}
+
+.loading-message {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem; /* Space above message */
+}
+
+.loader-note {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}

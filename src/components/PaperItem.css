@@ -1,0 +1,260 @@
+/* src/components/PaperItem.css */
+
+.paper-item {
+  /* Inherits .card styles from global.css */
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: 1.75rem 2.25rem; /* Increased padding for card content */
+  margin-bottom: 2rem; /* More space between items */
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.paper-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--color-primary);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.paper-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px); /* Enhanced lift effect */
+  border-color: #d1d5db; /* Slightly darker border on hover */
+}
+
+.paper-item:hover::before {
+  opacity: 1;
+}
+
+.paper-title {
+  font-size: 1.5rem; /* Larger title */
+  font-weight: 700; /* Bolder */
+  margin-top: 0;
+  margin-bottom: 0.8rem; /* More space below title */
+  line-height: 1.3;
+  color: var(--color-primary); /* Use primary color for titles */
+  position: relative;
+  display: inline-block;
+}
+
+.paper-title a {
+  /* Inherits global link styles */
+  color: inherit; /* Use the color from parent */
+  text-decoration: none; /* Remove default underline */
+  transition: all var(--transition-fast);
+  background-image: linear-gradient(transparent calc(100% - 2px), var(--color-primary-light) 2px);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size var(--transition-normal);
+}
+
+.paper-title a:hover {
+  color: var(--color-primary-hover); /* Darker on hover */
+  text-decoration: none; /* No underline */
+  background-size: 100% 100%;
+}
+
+.paper-authors {
+  font-size: 0.95rem; /* Slightly larger */
+  color: var(--color-text-muted);
+  margin-bottom: 0.8rem; /* More space */
+  font-style: italic; /* Italicize authors */
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.paper-authors::before {
+  content: '👤';
+  position: absolute;
+  left: 0;
+  opacity: 0.7;
+}
+
+.paper-meta {
+  font-size: 0.9rem; /* text-sm */
+  color: var(--color-text-muted);
+  margin-bottom: 1rem; /* More space */
+  display: flex; /* Use flex for better alignment */
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 0.6rem 1.2rem; /* Increased row and column gap */
+  align-items: center;
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--border-radius-md);
+  padding: 0.8rem 1rem;
+}
+
+.paper-meta span {
+  display: inline-flex; /* Align icon/text if icons were added */
+  align-items: center;
+  position: relative;
+  padding-left: 1.5rem; /* Space for icon */
+}
+
+.paper-meta span:nth-child(1)::before { /* Year */
+  content: '📅'; 
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Add icon for Journal (the 2nd span) */
+.paper-meta span:nth-child(2)::before { 
+  content: '📰'; /* Newspaper icon for Journal */
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.paper-meta span:nth-child(3)::before { /* Update Date Added (the 3rd span) */
+  content: '🕒'; /* Clock icon for Date Added */
+  position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Remove the incorrect rule for nth-child(5) */
+
+.paper-topics {
+  font-size: 0.9rem; /* text-sm */
+  color: var(--color-text-muted);
+  margin-bottom: 1.2rem; /* More space */
+  display: flex; /* Use flex for alignment */
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 0.6rem; /* Increased gap between tags */
+  align-items: center; /* Align items vertically */
+  position: relative; /* Needed for absolute positioning of icon */
+  padding-left: 1.8rem; /* Add space for the icon */
+}
+
+.paper-topics::before { /* Icon for Topics section */
+  content: '🏷️'; /* Using label tag icon */
+  position: absolute;
+  left: 0;
+  top: 0.1em; /* Adjust vertical alignment */
+  font-size: 1rem; /* Adjust icon size */
+  opacity: 0.8;
+}
+
+.paper-topics strong {
+  font-weight: 600; /* Semi-bold weight */
+  color: var(--color-text-base);
+  /* margin-right: 0.6rem; */ /* Removed margin, rely on padding-left of container */
+}
+
+.topic-tag {
+  display: inline-block;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: 0.35rem 0.8rem; /* Increased padding */
+  border-radius: var(--border-radius-md);
+  font-size: 0.85rem; /* Slightly larger font */
+  white-space: nowrap; /* Prevent tags from breaking */
+  transition: all var(--transition-fast);
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin: 0.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-tag::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.topic-tag:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.topic-tag:hover::after {
+  transform: translateX(100%);
+}
+
+.paper-abstract {
+  font-size: 1rem; /* Standard font size */
+  color: var(--color-text-base);
+  line-height: 1.7; /* Slightly increased line height */
+  margin-top: 1.5rem; /* More space */
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem; /* More padding */
+  animation: fadeIn 0.5s ease-in-out;
+  position: relative;
+  background-color: var(--color-bg-base);
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+.paper-abstract::before {
+  content: '📝';
+  position: absolute;
+  top: 1.5rem;
+  left: 0;
+  opacity: 0.7;
+  font-size: 1.2rem;
+}
+
+.paper-abstract p {
+  padding-left: 1.8rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.paper-abstract p {
+  margin-bottom: 0.8rem; /* Space below abstract text, before button */
+}
+
+.abstract-toggle-button {
+  /* Basic button reset */
+  background: none;
+  border: 2px solid var(--color-primary-light);
+  padding: 0.4rem 1rem; /* Increased padding */
+  margin: 0.8rem 0 0 1.8rem;
+  font-size: 0.9rem; /* Slightly larger */
+  font-weight: 500;
+  color: var(--color-primary);
+  cursor: pointer;
+  text-decoration: none; /* Remove default underline */
+  transition: all var(--transition-normal);
+  border-radius: var(--border-radius-md);
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.abstract-toggle-button::after {
+  content: '👁️';
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.abstract-toggle-button:hover {
+  color: white;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}

@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PaperApp from '../components/PaperApp.jsx';
+---
+
+<Layout title="Research Papers Explorer">
+	<header class="site-header">
+		<div class="container">
+			<h1>Research Papers Explorer</h1>
+			<p>Browse and search through thousands of academic papers</p>
+		</div>
+	</header>
+
+	<main class="container">
+		<div class="app-container">
+			<PaperApp client:load />
+		</div>
+	</main>
+
+	<footer class="site-footer" id="site-footer">
+		<div class="container">
+			<p>&copy; 2025 - Saswata Nandi</p>
+		</div>
+	</footer>
+</Layout>
+
+<style>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	.site-header {
+		background: linear-gradient(135deg, #1f2937 0%, #374151 100%); /* Darker gray gradient for contrast */
+		color: white; /* Keep text white */
+		padding: 4rem 0; /* Increased padding */
+		margin-bottom: 3rem; /* More space below header */
+		box-shadow: var(--shadow-lg); /* Use a larger shadow */
+		border-bottom: 4px solid var(--color-primary); /* Thicker accent border */
+		text-align: center; /* Center align text */
+	}
+
+	.site-header h1 {
+		margin: 0;
+		font-size: 3rem; /* Larger heading */
+		font-weight: 700; /* Bolder */
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Add subtle text shadow */
+	}
+
+	.site-header p {
+		margin: 0.75rem 0 0; /* More space above paragraph */
+		font-size: 1.2rem; /* Slightly larger */
+		opacity: 0.9; /* Less subtle */
+		font-weight: 400; /* Regular weight */
+		max-width: 800px; /* Limit paragraph width */
+		margin-left: auto; /* Center paragraph */
+		margin-right: auto; /* Center paragraph */
+	}
+
+	.app-container {
+		background-color: #fff;
+		border-radius: 8px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		padding: 2rem;
+		min-height: 400px;
+	}
+
+	.placeholder-content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 300px;
+		color: #7f8c8d;
+		font-size: 1.2rem;
+	}
+
+	.site-footer {
+		background-color: var(--color-bg-subtle);
+		border-top: 1px solid var(--color-border);
+		padding: 1rem 0;
+		margin-top: 4rem;
+		text-align: center;
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+	}
+
+	.site-footer p {
+		margin: 0.2rem 0;
+	}
+</style>

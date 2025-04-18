@@ -1,0 +1,73 @@
+/* src/components/PaperApp.css */
+
+.paper-app {
+  /* Main app container doesn't need much styling itself */
+  /* Padding/margins handled by children or layout */
+}
+
+.paper-app > h1 { /* Target only the direct h1 child */
+  /* This title is now hidden if PaperLoader is shown */
+  /* Consider moving this title inside the .papers-container */
+  /* Or removing it if the header provides enough context */
+  display: none; /* Hide for now, rely on header */
+}
+
+
+/* Container for controls (View, Filter, Search) */
+.controls-area {
+  /* Inherits .card styles from global.css */
+  padding: 1.5rem 2rem; /* Slightly more horizontal padding */
+  margin-bottom: 2.5rem; /* Increased space below controls */
+  /* box-shadow and border handled by .card */
+}
+
+/* Styling for View Controls */
+.view-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Increased gap */
+  margin-bottom: 1.5rem; /* Space below view controls */
+  padding-bottom: 1rem; /* Space before border */
+  border-bottom: 1px solid var(--color-border);
+}
+
+.view-controls span {
+  font-weight: 600; /* Bolder */
+  color: var(--color-text-base); /* Darker */
+  margin-right: 0.75rem; /* More space */
+  font-size: 0.9rem;
+}
+
+/* Use a more subtle button style for view controls */
+.view-controls button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.875rem; /* Smaller text */
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border-radius: var(--border-radius-sm); /* Smaller border radius for view buttons */
+}
+
+.view-controls button:hover:not(:disabled) {
+  background-color: var(--color-bg-muted);
+  border-color: #d1d5db; /* Gray-300 */
+  color: var(--color-text-base);
+}
+
+.view-controls button:disabled {
+  background-color: var(--color-primary); /* Use primary color for active */
+  color: white;
+  border-color: var(--color-primary);
+  cursor: default;
+  opacity: 1;
+}
+
+/* Container for the main content (controls, list) when data is ready */
+.papers-container {
+  /* No margin-top needed if controls are inside */
+}
+
+/* Remove styles handled globally or in PaperLoader.css */
+/* .load-container, .load-button, .loading-indicator, .progress-bar, .progress-fill */
+/* are better handled within PaperLoader.css or globally */

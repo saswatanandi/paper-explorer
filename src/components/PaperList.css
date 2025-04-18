@@ -1,0 +1,71 @@
+/* src/components/PaperList.css */
+
+.paper-list-container {
+  /* margin-top: 2rem; */ /* Handled by .papers-container in PaperApp.css */
+}
+
+.list-summary {
+  font-size: 1rem; /* Slightly larger */
+  color: var(--color-text-base); /* Darker text */
+  margin-bottom: 1.5rem;
+  text-align: center;
+  padding: 0.75rem 1rem; /* More padding */
+  background-color: var(--color-bg-muted);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
+  font-weight: 500; /* Medium weight */
+}
+
+.paper-list {
+  /* Remove default list styling if it's a <ul> or <ol> */
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Ensure no default margins */
+}
+
+/* Remove placeholder styles for PaperItem */
+/* .paper-list > div { ... } */
+/* .paper-list strong { ... } */
+/* .paper-list small { ... } */
+
+
+/* Pagination */
+.pagination-controls {
+  margin-top: 2.5rem; /* More space above pagination */
+  padding-top: 1.5rem; /* Space above buttons */
+  border-top: 1px solid var(--color-border); /* Separator */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center items */
+  align-items: center;
+  gap: 0.75rem; /* Space between buttons and text */
+}
+
+.pagination-controls button {
+  /* Use a secondary button style */
+  padding: 0.5rem 1rem; /* Adjust padding */
+  font-size: 0.9rem;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-base);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md); /* Ensure consistent border radius */
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: var(--color-bg-muted);
+  border-color: #d1d5db; /* Gray-300 */
+}
+
+.pagination-controls button:disabled {
+  background-color: var(--color-bg-muted);
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-controls span {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  /* margin: 0 1rem; */ /* Use gap instead */
+  /* vertical-align: middle; */ /* Handled by flex align-items */
+}
